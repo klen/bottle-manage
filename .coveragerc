@@ -1,0 +1,5 @@
+[report]
+source=bottle_manage
+
+[run]
+source=bottle_manage
