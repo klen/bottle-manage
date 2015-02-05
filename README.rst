@@ -55,6 +55,42 @@ Installation
 Usage
 =====
 
+::
+
+    app = Bottle()
+    manage = Manage(app)
+
+    @manage.shell
+    def context():
+        from .models import Partner, Record, db # noqa
+        ctx = locals()
+        ctx['app'] = app
+        ctx['db'] = db.database
+        return ctx
+
+
+    @manage.command
+    def db():
+        """ Initialize the database."""
+        from peewee_migrate.core import Router
+        router = Router(
+            os.path.join(app.config['ROOT_DIR'], 'migrations'), DATABASE=app.config['DATABASE_URI'])
+        router.run()
+
+
+    @manage.command
+    def runserver(reloader=False, debug=False, port=5000):
+        """ Run the application. """
+        app.run(reloader=reloader, debug=debug, port=port)
+
+
+    if __name__ == '__main__':
+        manage()
+
+::
+
+    $ ./manage.py --help
+
 .. _bugtracker:
 
 Bug tracker
