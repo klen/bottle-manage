@@ -19,7 +19,7 @@ def test_bottle_manage(capsys):
     with pytest.raises(SystemExit):
         manage([])
     out, err = capsys.readouterr()
-    assert 'usage' in err
+    assert 'usage' in err + out
 
     with pytest.raises(SystemExit):
         manage(["hello"])

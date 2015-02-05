@@ -25,11 +25,6 @@ Bottle Manage -- Short description.
     :target: https://www.gratipay.com/klen/
     :alt: Donate
 
-.. _documentation:
-
-**Docs are available at https://bottle-manage.readthedocs.org/. Pull requests
-with documentation enhancements and/or fixes are awesome and most welcome.**
-
 .. _contents:
 
 .. contents::
@@ -55,7 +50,10 @@ Installation
 Usage
 =====
 
-::
+`manage.py`: ::
+
+    from bottle import Bottle
+    from bottle_manage import Manage
 
     app = Bottle()
     manage = Manage(app)

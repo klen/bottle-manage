@@ -67,6 +67,10 @@ class Manage(object):
         options = self.parser.parse_args(args)
         kwargs = dict(options._get_kwargs())
         handler = self.handlers.get(kwargs.pop('subparser'))
+        if not handler:
+            self.parser.print_help()
+            sys.exit(1)
+
         try:
             handler(**kwargs)
             sys.exit(0)
