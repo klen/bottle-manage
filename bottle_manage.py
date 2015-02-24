@@ -38,10 +38,10 @@ class Manage(object):
             return script.make_shell(lambda: ctx, "Loaded objects: " + ", ".join(ctx.keys()))()
 
         @self.command
-        def runserver(reload=False, debug=False, port=5000):
+        def runserver(reload=False, debug=False, port=5000, host='127.0.0.1'):
             """ Run the application. """
 
-            app.run(reload=reload, debug=debug, port=port)
+            app.run(reload=reload, debug=debug, port=port, host=host)
 
     def command(self, func):
         parser = self.parsers.add_parser(func.__name__, description=func.__doc__)
