@@ -6,7 +6,7 @@
 # Package information
 # ===================
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 __project__ = "bottle-manage"
 __author__ = "Kirill Klenov <horneds@gmail.com>"
 __license__ = "MIT"
